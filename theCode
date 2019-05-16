@@ -1,0 +1,37 @@
+ static void solve(double meal_cost, int tip_percent, int tax_percent) {
+
+        double tip = 0;
+        double tax = 0;
+        double total = 0;
+        int roundCost = 0;
+
+        double tip1 = (double) tip_percent / 100 ;
+        double tax1 = (double) tax_percent / 100 ;
+
+
+        tip = meal_cost * tip1;
+
+        BigDecimal bd = new BigDecimal(tip).setScale(2, RoundingMode.HALF_UP);
+        double newTip = bd.doubleValue();
+
+
+        tax = meal_cost * tax1;
+
+        BigDecimal bd1 = new BigDecimal(tax).setScale(2, RoundingMode.HALF_UP);
+        double newTax = bd1.doubleValue();
+
+
+
+        total = newTip + newTax + meal_cost;
+
+        BigDecimal bd2 = new BigDecimal(total).setScale(0, RoundingMode.HALF_UP);
+
+        double newTotal = bd2.doubleValue();
+
+
+
+        roundCost = (int) newTotal;
+
+        System.out.println(roundCost);
+
+    }
